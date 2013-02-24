@@ -11,6 +11,10 @@ Has some auto-newline and indent features for JS/CSS/PHP
 Assumes and works best with emacs v24+
 but will try to "gracefully degrade" for earlier versions.
 
+As a special bonus, for randomness, will do similar multi-mode for bash
+and shell scripts that have inline php.
+
+
 
 
 Example usage setup:
