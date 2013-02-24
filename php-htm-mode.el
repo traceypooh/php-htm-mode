@@ -91,7 +91,6 @@
 ;; (from: http://babble.10gen.com/Developer%20Setup )
 ;;  wget http://www.tex.ac.uk/tex-archive/support/iso-tex/multi-mode.el
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(load-library "/home/tracey/emacs/multi-mode.el")
 (setq-default indent-tabs-mode nil)
 
 
