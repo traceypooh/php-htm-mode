@@ -22,3 +22,7 @@ Example usage setup:
 (load-library (concat (getenv "HOME") "/php-htm-mode/multi-mode.el"))<br>
 (load-library (concat (getenv "HOME") "/php-htm-mode/php-htm-mode.el"))
 </code>
+
+
+Works great on linux and MacOSX 
+(I'm using macports and "sudo port install emacs" for v24 emacs in Mountain Lion)
