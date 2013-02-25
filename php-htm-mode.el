@@ -154,7 +154,11 @@
 
 (setq default-tab-width 2)
 
+;; php-mode or similar tries to make "js2-mode" the default for .js files
+;; that doesnt bode well always (eg: precise ubuntu w/ a quantal emacs v24 pkg!),
+;; so here switch default for .js files back to "js-mode".
+;; And avoid "javascript-mode":
+;;   http://emacswiki.org/emacs/JavaScriptMode
 (setq auto-mode-alist 
-      (append auto-mode-alist 
-              '(("\\.js$"   . js-mode)
-                )))
+      (append '(("\\.js$"   . js-mode))
+              auto-mode-alist ))
