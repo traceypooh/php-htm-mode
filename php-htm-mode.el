@@ -105,14 +105,14 @@
 (defun php-htm-mode ()
   (multi-mode 1
               'html-mode
-              '("<\?" php-mode)
-              '("<\?php" php-mode)
-              '("\?>" html-mode)
-              '("<script" js-mode)
+              '("<\?"           php-mode)
+              '("<\?php"        php-mode)
+              '("\?>"           html-mode)
+              '("<script"       js-mode)
+              '("</script>"     html-mode)
+              '("<style"        css-mode)
+              '("</style>"      html-mode)
               ;;'("\{\"" json-mode) ;; not quite ideal...
-              '("</script>" html-mode)
-              '("<style" css-mode)
-              '("</style>" html-mode)
               ))
 
 
@@ -131,7 +131,7 @@
 ;; matches one of them -- and if so, to flip on php-htm-mode (and *NOT* use
 ;; auto-mode-alist -- since php-mode (normal mode) can mangle that)
 ;; A bonus is that if a file doesn't have a .php or .inc file extension, these
-;; will make the file automagically load into php mmode!
+;; will make the file automagically load into php-htm-mode!
 (setq magic-mode-alist (append magic-mode-alist '(("<\\?"               . php-htm-mode))))
 (setq magic-mode-alist (append magic-mode-alist '(("../usr/bin/env php" . php-htm-mode))))
 (setq magic-mode-alist (append magic-mode-alist '(("<html"              . php-htm-mode))))
