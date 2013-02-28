@@ -100,17 +100,9 @@
 (setq-default indent-tabs-mode nil)
 
 
-(defun tracey-sh-mode ()
-  (tracey-text-mode)
-  (multi-mode 1
-              'sh-mode
-              '("<\?" php-mode)
-              '("\?>" sh-mode)
-              ))
-
 ;; maybe some day, add some crazy sh1t?
 ;; http://blog.deadpansincerity.com/2011/05/setting-up-emacs-as-a-javascript-editing-environment-for-fun-and-profit/
-(defun php-mmode () (interactive)
+(defun php-htm-mode ()
   (multi-mode 1
               'html-mode
               '("<\?" php-mode)
@@ -124,19 +116,28 @@
               ))
 
 
+(defun tracey-sh-mode ()
+  (tracey-text-mode)
+  (multi-mode 1
+              'sh-mode
+              '("<\?" php-mode)
+              '("\?>" sh-mode)
+              ))
+
+
 
 
 ;; These mappings will setup a "peek" of the start of the file to see if it
-;; matches one of them -- and if so, to flip on php-mmode (and *NOT* use
+;; matches one of them -- and if so, to flip on php-htm-mode (and *NOT* use
 ;; auto-mode-alist -- since php-mode (normal mode) can mangle that)
 ;; A bonus is that if a file doesn't have a .php or .inc file extension, these
 ;; will make the file automagically load into php mmode!
-(setq magic-mode-alist (append magic-mode-alist '(("<\\?"               . php-mmode))))
-(setq magic-mode-alist (append magic-mode-alist '(("../usr/bin/env php" . php-mmode))))
-(setq magic-mode-alist (append magic-mode-alist '(("<html"              . php-mmode))))
-(setq magic-mode-alist (append magic-mode-alist '(("<head"              . php-mmode))))
-(setq magic-mode-alist (append magic-mode-alist '(("<body"              . php-mmode))))
-(setq magic-mode-alist (append magic-mode-alist '(("<\\!DOCTYPE html"   . php-mmode))))
+(setq magic-mode-alist (append magic-mode-alist '(("<\\?"               . php-htm-mode))))
+(setq magic-mode-alist (append magic-mode-alist '(("../usr/bin/env php" . php-htm-mode))))
+(setq magic-mode-alist (append magic-mode-alist '(("<html"              . php-htm-mode))))
+(setq magic-mode-alist (append magic-mode-alist '(("<head"              . php-htm-mode))))
+(setq magic-mode-alist (append magic-mode-alist '(("<body"              . php-htm-mode))))
+(setq magic-mode-alist (append magic-mode-alist '(("<\\!DOCTYPE html"   . php-htm-mode))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; multi-mode for php   (PHP and HTM and JS intermixed)
 ;; multi-mode for bash  (bash and PHP intermixed)
