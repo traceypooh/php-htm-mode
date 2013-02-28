@@ -32,6 +32,10 @@ Works great on linux and MacOSX
 (I'm using macports and "sudo port install emacs php-mode.el" for v24 emacs in Mountain Lion)
 
 
+Demo video:
+<iframe src="http://archive.org/embed/php-htm-mode" width="788" height="596" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+
+
 Here's some screenshots illustrating cursor movement and mode changes in a file with 4 kinds of code
 (PHP/HTM/CSS/JS)
 
