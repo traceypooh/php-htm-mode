@@ -33,7 +33,7 @@ Works great on linux and MacOSX
 
 
 Demo video:
-[![ScreenShot]((https://raw.github.com/traceypooh/php-htm-mode/master/clik.png)](http://archive.org/details/php-htm-mode)
+[![ScreenShot](https://raw.github.com/traceypooh/php-htm-mode/master/clik.png)](http://archive.org/details/php-htm-mode)
 
 
 
