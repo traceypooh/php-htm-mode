@@ -33,7 +33,8 @@ Works great on linux and MacOSX
 
 
 Demo video:
-<iframe src="http://archive.org/embed/php-htm-mode" width="788" height="596" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+[![ScreenShot]((https://raw.github.com/traceypooh/php-htm-mode/master/clik.png)](http://archive.org/details/php-htm-mode)
+
 
 
 Here's some screenshots illustrating cursor movement and mode changes in a file with 4 kinds of code
