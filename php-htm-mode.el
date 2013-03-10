@@ -87,6 +87,24 @@
       ;;;;;;;;;;  NOTE: requires emacs 24+
 )))
 
+
+;; like tracey-code-mode, but ";" char doesn't auto newline
+(defun tracey-css-mode ()
+  (tracey-text-mode)
+
+  (if (eq emacs-major-version '24)
+    (progn
+      ;;;;;;;;;;  NOTE: requires emacs 24+
+      ;; make it so auto-NEWLINE whenever type any of chars:   { }
+      (electric-layout-mode t) 
+      (set (make-local-variable 'electric-layout-rules) 
+           '((?\{ . after)
+             (?\} . after)))
+      (electric-indent-mode t) 
+      (set (make-local-variable 'electric-indent-chars) (cons ?\; electric-indent-chars))
+      ;;;;;;;;;;  NOTE: requires emacs 24+
+)))
+
   
 
 
@@ -132,12 +150,23 @@
 ;; auto-mode-alist -- since php-mode (normal mode) can mangle that)
 ;; A bonus is that if a file doesn't have a .php or .inc file extension, these
 ;; will make the file automagically load into php-htm-mode!
-(setq magic-mode-alist (append magic-mode-alist '(("<\\?"               . php-htm-mode))))
-(setq magic-mode-alist (append magic-mode-alist '(("../usr/bin/env php" . php-htm-mode))))
-(setq magic-mode-alist (append magic-mode-alist '(("<html"              . php-htm-mode))))
-(setq magic-mode-alist (append magic-mode-alist '(("<head"              . php-htm-mode))))
-(setq magic-mode-alist (append magic-mode-alist '(("<body"              . php-htm-mode))))
-(setq magic-mode-alist (append magic-mode-alist '(("<\\!DOCTYPE html"   . php-htm-mode))))
+(if (fboundp 'nxhtml-mumamo-mode)
+    (progn
+      (setq magic-mode-alist (append magic-mode-alist '(("<\\?"               . nxhtml-mumamo-mode))))
+      (setq magic-mode-alist (append magic-mode-alist '(("../usr/bin/env php" . nxhtml-mumamo-mode))))
+      (setq magic-mode-alist (append magic-mode-alist '(("<html"              . nxhtml-mumamo-mode))))
+      (setq magic-mode-alist (append magic-mode-alist '(("<head"              . nxhtml-mumamo-mode))))
+      (setq magic-mode-alist (append magic-mode-alist '(("<body"              . nxhtml-mumamo-mode))))
+      (setq magic-mode-alist (append magic-mode-alist '(("<\\!DOCTYPE html"   . nxhtml-mumamo-mode))))
+      )
+    (progn
+      (setq magic-mode-alist (append magic-mode-alist '(("<\\?"               . php-htm-mode))))
+      (setq magic-mode-alist (append magic-mode-alist '(("../usr/bin/env php" . php-htm-mode))))
+      (setq magic-mode-alist (append magic-mode-alist '(("<html"              . php-htm-mode))))
+      (setq magic-mode-alist (append magic-mode-alist '(("<head"              . php-htm-mode))))
+      (setq magic-mode-alist (append magic-mode-alist '(("<body"              . php-htm-mode))))
+      (setq magic-mode-alist (append magic-mode-alist '(("<\\!DOCTYPE html"   . php-htm-mode))))
+      ))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; multi-mode for php   (PHP and HTM and JS intermixed)
 ;; multi-mode for bash  (bash and PHP intermixed)
@@ -148,7 +177,7 @@
 (setq js2-mode-hook             'tracey-code-mode)
 (setq javascript-mode-hook      'tracey-code-mode)
 (setq php-mode-hook             'tracey-text-mode)
-(setq css-mode-hook             'tracey-code-mode)
+(setq css-mode-hook             'tracey-css-mode)
 
 
 (autoload 'php-mode "php-mode" "PHP mode." t) ;; only really needed for MacOSX
